@@ -5,7 +5,8 @@
 #include <fcntl.h>
 #include "tlpi_hdr.h"
 
-int main(int argc, char *argv[]) {
+// lseek测试代码
+void lseek_test() {
     int fd = open("./test.txt", O_RDONLY);
     if (fd == -1)
         errExit("open");
@@ -47,5 +48,26 @@ int main(int argc, char *argv[]) {
         errExit("read");
     buf3[read_num] = '\0';
     printf("read(%ld) SEEK_END -> %s\n", read_num, buf3);
+}
+
+void creat_empty_file() {
+    int empty_fd = open("empty_file", O_CREAT | O_WRONLY, 0666);
+    if (empty_fd == -1)
+        errExit("open");
+
+    ssize_t offset = lseek(empty_fd, 1024 * 1024, SEEK_END);
+    printf("offset: %ld\n", offset);
+
+    if (write(empty_fd, "", 1))
+        errExit("write\n");
+//    printf("write success.");
+
+    if (close(empty_fd) == -1)
+        errExit("close");
+}
+
+int main(int argc, char *argv[]) {
+//    lseek_test();
+    creat_empty_file();
     return 0;
 }

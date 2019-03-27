@@ -12,6 +12,7 @@ void Usage(char *exe) {
     exit(-1);
 }
 
+// 类似与Linux下tee命令的功能，添加-a参数为在文件末尾添加而不是覆盖原始文件
 int main(int argc, char *argv[]) {
     int flag = O_CREAT | O_WRONLY;
     int mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH;
@@ -54,6 +55,9 @@ int main(int argc, char *argv[]) {
         if (write(outputFd, buf, (size_t) read_num) == -1)
             errExit("write file");
     }
+
+    if (close(STDIN_FILENO) == -1 || close(STDOUT_FILENO) == -1 || close(outputFd) == -1)
+        errExit("close");
 
     return 0;
 }

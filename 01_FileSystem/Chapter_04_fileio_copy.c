@@ -6,6 +6,7 @@
 #define BUF_SIZE 1024
 #endif
 
+// 类似于Linux下cp的命令
 int main(int argc, char *argv[]) {
     int inputFd, outputFd, openFlags;
     mode_t filePerms;

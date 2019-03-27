@@ -8,6 +8,9 @@ add_executable(lseek Chapter_04_fileio_lseek.c)
 target_link_libraries(lseek
         error_functions)
 
+add_executable(seekio Chapter_04_fileio_seekio.c)
+target_link_libraries(seekio
+        error_functions)
 
 # 课后习题
 add_executable(tee Chapter_04_answer_tee.c)
