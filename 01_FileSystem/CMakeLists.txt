@@ -35,6 +35,11 @@ add_executable(pread_pwrite Chapter_05_pread_pwrite.c)
 target_link_libraries(pread_pwrite
         error_functions)
 
+# readv
+add_executable(readv Chapter_05_readv.c)
+target_link_libraries(readv
+        error_functions)
+
 # 课后习题
 add_executable(tee Chapter_04_answer_tee.c)
 target_link_libraries(tee
