@@ -1,0 +1,2 @@
+add_executable(01_one_process_one_file_open_twice 01_one_process_one_file_open_twice.c)
+add_executable(02_file_descriptor_dup 02_file_descriptor_dup.c)

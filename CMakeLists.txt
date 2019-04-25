@@ -11,3 +11,4 @@ add_library(error_functions SHARED ./include/error_functions.c)
 add_library(get_num SHARED ./include/get_num.c)
 
 add_subdirectory(01_FileSystem)
+add_subdirectory(test)
